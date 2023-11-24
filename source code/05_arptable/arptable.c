@@ -403,7 +403,7 @@ int main(int argc, char *argv[]) {
 	rte_timer_init(&arp_timer);
 
 	uint64_t hz = rte_get_timer_hz();
-	unsigned lcore_id = rte_lcore_id();
+	unsigned lcore_id = rte_lcore_id(); // 返回当前正在运行lcore
 	rte_timer_reset(&arp_timer, hz, PERIODICAL, lcore_id, arp_request_timer_cb, mbuf_pool);
 
 #endif

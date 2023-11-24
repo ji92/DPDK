@@ -216,7 +216,7 @@ static int ng_encode_arp_pkt(uint8_t *msg, uint16_t opcode, uint8_t *dst_mac, ui
 
 static struct rte_mbuf *ng_send_arp(struct rte_mempool *mbuf_pool, uint16_t opcode, uint8_t *dst_mac, uint32_t sip, uint32_t dip) {
 
-	const unsigned total_length = sizeof(struct rte_ether_hdr) + sizeof(struct rte_arp_hdr);
+	const unsigned total_length = sizeof(struct rte_ether_hdr) + sizeof(struct rte_arp_hdr); // ARP发送范围仅限于子网内，不需要IP头
 
 	struct rte_mbuf *mbuf = rte_pktmbuf_alloc(mbuf_pool);
 	if (!mbuf) {

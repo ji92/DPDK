@@ -141,7 +141,7 @@ static struct rte_mbuf * ng_send_udp(struct rte_mempool *mbuf_pool, uint8_t *dat
 
 	// mempool --> mbuf
 
-	const unsigned total_len = length + 42;
+	const unsigned total_len = length + 42; // MAC header + IP header长度
 
 	struct rte_mbuf *mbuf = rte_pktmbuf_alloc(mbuf_pool);
 	if (!mbuf) {

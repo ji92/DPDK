@@ -333,7 +333,7 @@ print_ethaddr(const char *name, const struct rte_ether_addr *eth_addr)
 
 #if ENABLE_TIMER
 
-static void
+static void // 定时回调，子网内发送ARP request
 arp_request_timer_cb(__attribute__((unused)) struct rte_timer *tim,
 	   void *arg) {
 

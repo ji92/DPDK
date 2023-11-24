@@ -361,7 +361,7 @@ arp_request_timer_cb(__attribute__((unused)) struct rte_timer *tim,
 		uint8_t *dstmac = ng_get_dst_macaddr(dstip);
 		if (dstmac == NULL) {
 
-			arpbuf = ng_send_arp(mbuf_pool, RTE_ARP_OP_REQUEST, gDefaultArpMac, gLocalIp, dstip);
+			arpbuf = ng_send_arp(mbuf_pool, RTE_ARP_OP_REQUEST, gDefaultArpMac, gLocalIp, dstip); // 广播报文，地址0xFFFFFFFF
 		
 		} else {
 

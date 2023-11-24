@@ -189,7 +189,7 @@ static int ng_encode_arp_pkt(uint8_t *msg, uint16_t opcode, uint8_t *dst_mac, ui
 	struct rte_ether_hdr *eth = (struct rte_ether_hdr *)msg;
 	rte_memcpy(eth->s_addr.addr_bytes, gSrcMac, RTE_ETHER_ADDR_LEN);
 	if (!strncmp((const char *)dst_mac, (const char *)gDefaultArpMac, RTE_ETHER_ADDR_LEN)) {
-		uint8_t mac[RTE_ETHER_ADDR_LEN] = {0x0};
+		uint8_t mac[RTE_ETHER_ADDR_LEN] = {0x0}; // mac地址为止，补0留空；貌似反了，应该在eth头部全部填1，代表广播报文，而在ARP报文填0，因为mac地址还未知
 		rte_memcpy(eth->d_addr.addr_bytes, mac, RTE_ETHER_ADDR_LEN);
 	} else {
 		rte_memcpy(eth->d_addr.addr_bytes, dst_mac, RTE_ETHER_ADDR_LEN);

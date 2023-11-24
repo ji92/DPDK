@@ -351,7 +351,7 @@ arp_request_timer_cb(__attribute__((unused)) struct rte_timer *tim,
 	int i = 0;
 	for (i = 1;i <= 254;i ++) {
 
-		uint32_t dstip = (gLocalIp & 0x00FFFFFF) | (0xFF000000 & (i << 24));
+		uint32_t dstip = (gLocalIp & 0x00FFFFFF) | (0xFF000000 & (i << 24)); // 网络字节序变换，遍历子网所有IP
 
 		struct in_addr addr;
 		addr.s_addr = dstip;

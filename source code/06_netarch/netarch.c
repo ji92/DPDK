@@ -1,5 +1,5 @@
 
-
+// 这个版本主要在协议栈下面引入了收发包的ring buffer
 #include <rte_eal.h>
 #include <rte_ethdev.h>
 #include <rte_mbuf.h>

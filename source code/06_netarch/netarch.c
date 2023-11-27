@@ -630,12 +630,12 @@ int main(int argc, char *argv[]) {
 
 #if ENABLE_MULTHREAD
 
-	rte_eal_remote_launch(pkt_process, mbuf_pool, rte_get_next_lcore(lcore_id, 1, 0));
+	rte_eal_remote_launch(pkt_process, mbuf_pool, rte_get_next_lcore(lcore_id, 1, 0)); // 单独起了个线程
 
 #endif
 
 
-	while (1) {
+	while (1) {    // 也算是一个线程
 
 		// rx
 		struct rte_mbuf *rx[BURST_SIZE];

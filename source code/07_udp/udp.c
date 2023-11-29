@@ -1095,14 +1095,14 @@ int main(int argc, char *argv[]) {
 #endif
 
 #if ENABLE_MULTHREAD
-
+        // 单独起一个线程
 	lcore_id = rte_get_next_lcore(lcore_id, 1, 0);
 	rte_eal_remote_launch(pkt_process, mbuf_pool, lcore_id);
 
 #endif
 
 #if ENABLE_UDP_APP
-
+        // 单独起一个线程
 	lcore_id = rte_get_next_lcore(lcore_id, 1, 0);
 	rte_eal_remote_launch(udp_server_entry, mbuf_pool, lcore_id);
 

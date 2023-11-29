@@ -1077,13 +1077,13 @@ static int udp_server_entry(__attribute__((unused))  void *arg) {
 #define TCP_INITIAL_WINDOW  14600
 
 typedef enum _NG_TCP_STATUS {
-
+	// 三次握手的状态
 	NG_TCP_STATUS_CLOSED = 0,
 	NG_TCP_STATUS_LISTEN,
 	NG_TCP_STATUS_SYN_RCVD,
 	NG_TCP_STATUS_SYN_SENT,
 	NG_TCP_STATUS_ESTABLISHED,
-
+	// 四次挥手的状态
 	NG_TCP_STATUS_FIN_WAIT_1,
 	NG_TCP_STATUS_FIN_WAIT_2,
 	NG_TCP_STATUS_CLOSING,

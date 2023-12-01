@@ -2112,7 +2112,7 @@ static int tcp_server_entry(__attribute__((unused))  void *arg)  {
 		
 		struct sockaddr_in client;
 		socklen_t len = sizeof(client);
-		int connfd = naccept(listenfd, (struct sockaddr*)&client, &len);
+		int connfd = naccept(listenfd, (struct sockaddr*)&client, &len); //等待连接，阻塞
 
 		char buff[BUFFER_SIZE] = {0};
 		while (1) {

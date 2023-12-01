@@ -116,7 +116,7 @@ typedef enum _NG_TCP_STATUS {
 } NG_TCP_STATUS;
 
 
-struct ng_tcp_stream { // tcb control block
+struct ng_tcp_stream { // tcp control block
 
 	int fd; //
 

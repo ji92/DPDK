@@ -1120,7 +1120,7 @@ static int nbind(int sockfd, const struct sockaddr *addr,
 }
 
 
-static int nlisten(int sockfd, __attribute__((unused)) int backlog) { //
+static int nlisten(int sockfd, __attribute__((unused)) int backlog) { 
 
 	void *hostinfo =  get_hostinfo_fromfd(sockfd);
 	if (hostinfo == NULL) return -1;
@@ -1128,7 +1128,7 @@ static int nlisten(int sockfd, __attribute__((unused)) int backlog) { //
 	
 	struct ng_tcp_stream *stream = (struct ng_tcp_stream *)hostinfo;
 	if (stream->protocol == IPPROTO_TCP) {
-		stream->status = NG_TCP_STATUS_LISTEN;
+		stream->status = NG_TCP_STATUS_LISTEN; // 端口监听，状态变化
 	}
 
 	return 0;

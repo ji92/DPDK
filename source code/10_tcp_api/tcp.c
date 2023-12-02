@@ -1246,7 +1246,7 @@ static ssize_t nrecv(int sockfd, void *buf, size_t len, __attribute__((unused)) 
 			fragment->length = fragment->length-len;
 			length = fragment->length;
 
-			rte_ring_mp_enqueue(stream->rcvbuf, fragment);
+			rte_ring_mp_enqueue(stream->rcvbuf, fragment); // 内部回环，再回到rcvbuf等待下次被收取
 
 		} else if (fragment->length == 0) {
 

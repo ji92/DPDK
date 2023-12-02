@@ -774,7 +774,7 @@ static struct ng_tcp_stream *get_accept_tcb(uint16_t dport) {
 static void* get_hostinfo_fromfd(int sockfd) {
 
 	struct localhost *host;
-
+        // 处理UDP报文，UDP应用和TCP应用的fd不会一致，TCP会自动下个遍历流程
 	for (host = lhost; host != NULL;host = host->next) {
 
 		if (sockfd == host->fd) {
